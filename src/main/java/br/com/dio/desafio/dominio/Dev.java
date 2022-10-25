@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
-import java.util.stream.DoubleStream;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +26,6 @@ public class Dev {
     }
 
     public double calcularTotalXp() {
-        DoubleStream streamXP = this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp);
-        return streamXP.reduce(0, Double::sum);
+        return this.conteudosConcluidos.stream().mapToDouble(Conteudo::calcularXp).sum();
     }
 }
